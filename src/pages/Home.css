@@ -1,26 +1,28 @@
 .main {
-    padding-top: 1.25rem;
+  padding-top: 1.25rem;
 }
 
 .total-count {
-    font-weight: 600;
-    margin-bottom: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .pagination {
-    list-style: none;
-    display: flex;
-    gap: 0.625rem;
-    justify-content: end;
+  list-style: none;
+  display: flex;
+  gap: 0.625rem;
+  justify-content: flex-end;
 }
 
 .pagination li {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .pagination li.active {
-    font-weight: 900;
-    cursor: auto;
+  font-weight: 900;
+  cursor: auto;
 }
 
-.pagination li.disabled {cursor: not-allowed;}
+.pagination li.disabled {
+  cursor: not-allowed;
+}
