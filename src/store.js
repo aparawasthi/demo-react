@@ -1,22 +1,22 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const searchCriteria = createSlice({
     name: 'searchCriteria',
-    initialState: {username:'', sortBy:'name-asc'},
+    initialState: { username: '', sortBy: 'default' },
     reducers: {
-        updateUsername(state, action){
+        updateUsername(state, action) {
             state.username = action.payload;
         },
-        updateSortBy(state, action){
+        updateSortBy(state, action) {
             state.sortBy = action.payload;
-        }
-    }
-})
+        },
+    },
+});
 
 export const actions = searchCriteria.actions;
 
 const store = configureStore({
-    reducer: searchCriteria.reducer
+    reducer: searchCriteria.reducer,
 });
 
 export default store;
