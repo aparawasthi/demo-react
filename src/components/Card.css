@@ -1,0 +1,58 @@
+.card-wrapper{
+    margin-bottom: 1rem;
+}
+
+.user-card {
+    flex-direction: column;
+    align-items: center;
+    --gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.repos {
+    padding: 2rem 0;
+}
+
+.repo-header,
+.repo-details {
+    padding: 0.625rem 2rem;
+}
+.repo-header > div,
+.repo-details > div {
+    flex-grow: 1;
+    flex-basis: 10%;
+}
+.repos .repo-details:nth-child(odd) {
+    background-color:#e1e1e1;
+}
+.repo-header .repo-name,
+.repo-details .repo-name {
+    flex-basis: 40%;
+}
+
+@media (min-width: 35em) {
+    .user-card {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    .user-button{
+        align-self: end;
+    }
+}
+
+.user-card .user-details{
+    flex-grow: 1;
+}
+
+.avatar img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.user-button button {
+    padding-inline: 2rem;
+    border: 1px solid hsl(var(--clr-primary));
+    border-radius: 5px;
+    cursor: pointer;
+}
+
