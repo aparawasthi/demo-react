@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export async function getData(url){
+export async function getData(url) {
     try {
-      const response = await axios.get(url);
-      return response.data;
+        const response = await axios.get(url);
+        return response.data;
     } catch (error) {
-      console.error(error);
+        console.error(error);
     }
-  }
+}

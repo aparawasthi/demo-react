@@ -1,34 +1,34 @@
 import React from 'react';
 import { useState } from 'react';
 import './Card.css';
-import {getData} from '../utils/api';
+import { getData } from '../utils/api';
 
-function Card({user}) {
-    const [userData, setUserData] = useState({username:user.login, button_text:"Details", collapse:true, repoLoaded: false, repos:[]});
+function Card({ user }) {
+    const [userData, setUserData] = useState({ username: user.login, button_text: "Details", collapse: true, repoLoaded: false, repos: [] });
 
     const CollapseAccordion = (event) => {
-        if(!userData.repoLoaded){
+        if (!userData.repoLoaded) {
             try {
                 const username = userData.username;
                 (async function () {
                     const response = await getData(`https://api.github.com/users/${username}/repos`);
-                    setUserData(prevUserData => {return {...prevUserData, repos:response}});
+                    setUserData(prevUserData => { return { ...prevUserData, repos: response } });
                     console.log(response);
                 }());
-                setUserData(prevUserData => { return {...prevUserData, repoLoaded: true}});
-                
-            }catch(error){
+                setUserData(prevUserData => { return { ...prevUserData, repoLoaded: true } });
+
+            } catch (error) {
                 console.error(error);
             }
         }
-        
+
         let button_text = "";
-        if(userData.button_text === "Details"){
+        if (userData.button_text === "Details") {
             button_text = "Collapse";
-        } else{
+        } else {
             button_text = "Details";
         }
-        setUserData(prevUserData => {return {...prevUserData, button_text, collapse: !userData.collapse}});
+        setUserData(prevUserData => { return { ...prevUserData, button_text, collapse: !userData.collapse } });
 
     }
 
@@ -44,7 +44,7 @@ function Card({user}) {
                     <button className='text-primary bg-white' onClick={CollapseAccordion}>{userData.button_text}</button>
                 </div>
             </div>
-            <div className={'repos bg-white ' + (userData.collapse ? 'collapse':'show')}>
+            <div className={'repos bg-white ' + (userData.collapse ? 'collapse' : 'show')}>
                 {userData && <>
                     <div className='repo-header flex fw-bold'>
                         <div className='repo-name'>Repository Name</div>
