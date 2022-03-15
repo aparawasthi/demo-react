@@ -37,7 +37,7 @@ function Home({usersPerPage}) {
 
     useEffect(() => {
 
-        let sortedArray = [];
+        let sortedArray = [...users];
         if(sortBy === 'name-asc'){
             sortedArray = [...users].sort(function sort(a, b) {
                 const userA = a.login.toUpperCase();
